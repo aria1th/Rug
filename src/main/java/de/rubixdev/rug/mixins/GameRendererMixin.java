@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class GameRendererMixin {
     @Shadow @Final private MinecraftClient client;
 
-    @ModifyConstant(method = "updateTargetedEntity", allow = 1, require = 1, constant = @Constant(doubleValue = 6.0))
+    @ModifyConstant(method = "updateTargetedEntity", allow = 1, require = 0, constant = @Constant(doubleValue = 6.0))
     private double changeCreativeAttackRange(double baseReachDistance) {
         ClientPlayerInteractionManager manager = this.client.interactionManager;
         if (manager == null) {
@@ -23,7 +23,7 @@ public class GameRendererMixin {
         return manager.getReachDistance() + 1;
     }
 
-    @ModifyConstant(method = "updateTargetedEntity", allow = 1, require = 1, constant = @Constant(doubleValue = 9.0))
+    @ModifyConstant(method = "updateTargetedEntity", allow = 1, require = 0, constant = @Constant(doubleValue = 9.0))
     private double changeSurvivalAttackRange(double baseReachDistance) {
         return Math.pow(Math.sqrt(baseReachDistance) + RugSettings.reachDistance - 4.5, 2);
     }

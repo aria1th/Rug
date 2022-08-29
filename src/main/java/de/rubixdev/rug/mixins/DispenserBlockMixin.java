@@ -40,7 +40,7 @@ public class DispenserBlockMixin {
 			BlockPointerImpl blockPointerImpl = new BlockPointerImpl(world, pos);
 			DispenserBlockEntity dispenserBlockEntity = blockPointerImpl.getBlockEntity();
 			int slot = dispenserBlockEntity.chooseNonEmptySlot(world.random);
-			if (slot == -1) {
+			if (slot < 0) {
 				return;
 			}
 			ItemStack stack = dispenserBlockEntity.getStack(slot);

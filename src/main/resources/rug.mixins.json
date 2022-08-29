@@ -21,6 +21,7 @@
     "ChorusFlowerBlockMixin",
     "ConcretePowderBlockMixin",
     "CreeperEntityMixin",
+    "DispenserBlockMixin",
     "DragonEggBlockMixin",
     "EndCrystalItemMixin",
     "EnderDragonEntityMixin",
