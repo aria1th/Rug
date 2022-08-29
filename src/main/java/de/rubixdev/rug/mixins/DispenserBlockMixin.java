@@ -1,5 +1,6 @@
 package de.rubixdev.rug.mixins;
 
+
 import de.rubixdev.rug.RugSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -25,13 +26,13 @@ public class DispenserBlockMixin {
     public static DirectionProperty FACING;
 
     @Inject(
-            method = "dispense",
-            at =
-                    @At(
-                            value = "INVOKE_ASSIGN",
-                            target =
-                                    "Lnet/minecraft/block/entity/DispenserBlockEntity;setStack(ILnet/minecraft/item/ItemStack;)V"),
-            cancellable = true)
+        method = "dispense",
+        at = @At(
+            value = "INVOKE_ASSIGN",
+            target = "Lnet/minecraft/block/entity/DispenserBlockEntity;setStack(ILnet/minecraft/item/ItemStack;)V"
+        ),
+        cancellable = true
+    )
     private void tryDispense(ServerWorld world, BlockPos pos, CallbackInfo ci) {
         if (!RugSettings.renewableCalcite) return;
         BlockPos facingPos = pos.offset(world.getBlockState(pos).get(FACING));
@@ -40,9 +41,7 @@ public class DispenserBlockMixin {
             BlockPointerImpl blockPointerImpl = new BlockPointerImpl(world, pos);
             DispenserBlockEntity dispenserBlockEntity = blockPointerImpl.getBlockEntity();
             int slot = dispenserBlockEntity.chooseNonEmptySlot(world.random);
-            if (slot == -1) {
-                return;
-            }
+            if (slot == -1) { return; }
             ItemStack stack = dispenserBlockEntity.getStack(slot);
             if (stack.isOf(Items.BONE_MEAL)) {
                 stack.decrement(1);
