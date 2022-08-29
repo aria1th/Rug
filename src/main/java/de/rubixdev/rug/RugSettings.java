@@ -2,6 +2,7 @@ package de.rubixdev.rug;
 
 import static carpet.api.settings.RuleCategory.*;
 
+import carpet.CarpetServer;
 import carpet.api.settings.CarpetRule;
 import carpet.api.settings.Rule;
 import carpet.api.settings.Rule.Condition;
@@ -158,7 +159,7 @@ public class RugSettings {
         @Override
         public Double validate(
                 ServerCommandSource source, CarpetRule<Double> currentRule, Double newValue, String string) {
-            return newValue >= 0 && newValue <= 100 ? newValue : null;
+            return newValue >= 0 && newValue <= (CarpetServer.minecraft_server == null ? 100 : CarpetServer.minecraft_server.getPlayerManager().getSimulationDistance() * 16) ? newValue : null;
         }
 
         @Override
