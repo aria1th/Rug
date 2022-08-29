@@ -27,6 +27,8 @@
   // blastFurnaceSmoothSandStone
   "carpet.rule.blastFurnaceSmoothSandStone.desc": "Sandstone and Red Sandstone can be smelted to the smooth variant in a Blast Furnace",
   "carpet.rule.blastFurnaceSmoothSandStone.extra.0": "Expect a lag spike when changing the value",
+  // renewableCalcite
+  "carpet.rule.renewableCalcite.desc": "Bonemealing cobblestone with dispenser will convert it to Calcite",
   // blastFurnaceStone
   "carpet.rule.blastFurnaceStone.desc": "Cobblestone to Stone to Smooth Stone can be smelted in a Blast Furnace",
   "carpet.rule.blastFurnaceStone.extra.0": "Expect a lag spike when changing the value",
@@ -180,6 +182,7 @@
   "carpet.rule.powderToGlassSmelting.extra.0": "Expect a lag spike when changing the value",
   "carpet.rule.powderToGlassSmelting.additional": "Idea from [VanillaTweaks](https://vanillatweaks.net/picker/crafting-tweaks/)",
   // reachDistance
+  "carpet.rule.reachPermissionLevel.desc": "Minimum permission to have extended reach",
   "carpet.rule.reachDistance.desc": "Reach in which you can place and break blocks. Value will be 0.5 higher in creative",
   "carpet.rule.reachDistance.extra.0": "Mod needed on server and client for this feature to work",
   "carpet.rule.reachDistance.additional": "Is disabled when [reach-entity-attributes](https://github.com/JamiesWhiteShirt/reach-entity-attributes) or [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) is installed",
