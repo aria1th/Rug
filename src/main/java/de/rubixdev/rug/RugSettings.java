@@ -1,5 +1,6 @@
 package de.rubixdev.rug;
 
+import carpet.CarpetServer;
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
@@ -179,6 +180,9 @@ public class RugSettings {
     @Rule(desc = "Lily Pads can be placed on Cauldrons", category = { FEATURE, RUG })
     public static boolean lilyPadsOnCauldron = false;
 
+	@Rule(desc = "Bonemeal being dispensed on Cobblestone will convert it to calcite", category = {EXPERIMENTAL, RENEWABLE, FEATURE, RUG })
+	public static boolean renewableCalcite = false;
+
     public static class validatorDamage extends Validator<Integer> {
 
         @Override
@@ -234,7 +238,7 @@ public class RugSettings {
             Double newValue,
             String string
         ) {
-            return newValue >= 0 && newValue <= 100 ? newValue : null;
+            return newValue >= 0 && newValue <= (CarpetServer.minecraft_server == null ? 100 : CarpetServer.minecraft_server.getPlayerManager().getSimulationDistance() * 16) ? newValue : null;
         }
 
         @Override
