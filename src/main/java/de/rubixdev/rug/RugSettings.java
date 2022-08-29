@@ -159,7 +159,16 @@ public class RugSettings {
         @Override
         public Double validate(
                 ServerCommandSource source, CarpetRule<Double> currentRule, Double newValue, String string) {
-            return newValue >= 0 && newValue <= (CarpetServer.minecraft_server == null ? 100 : CarpetServer.minecraft_server.getPlayerManager().getSimulationDistance() * 16) ? newValue : null;
+            return newValue >= 0
+                            && newValue
+                                    <= (CarpetServer.minecraft_server == null
+                                            ? 100
+                                            : CarpetServer.minecraft_server
+                                                            .getPlayerManager()
+                                                            .getSimulationDistance()
+                                                    * 16)
+                    ? newValue
+                    : null;
         }
 
         @Override
@@ -713,10 +722,21 @@ public class RugSettings {
     public static boolean basaltToBlackstoneConversion = false;
 
     @Rule(categories = {FEATURE, SURVIVAL, RENEWABLE, RUG})
+    public static boolean renewableCalcite = false;
+
+    @Rule(categories = {SURVIVAL, RENEWABLE, RUG})
+    public static boolean infiniteLavaSources = false;
+
+    @Rule(categories = {FEATURE, SURVIVAL, RENEWABLE, RUG})
     public static boolean basaltToLavaConversion = false;
 
     @Rule(categories = {COMMAND, RUG})
     public static String commandSudo = "ops";
+
+    @Rule(
+            options = {"0", "1", "2", "3"},
+            categories = {EXPERIMENTAL, RUG})
+    public static int reachPermissionLevel = 0;
 
     @Rule(categories = {RUG})
     public static boolean endCrystalPlacementRestriction = true;
