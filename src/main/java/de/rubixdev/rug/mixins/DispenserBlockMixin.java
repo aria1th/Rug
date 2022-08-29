@@ -27,10 +27,7 @@ public class DispenserBlockMixin {
 	@Inject(
 		method = "dispense",
 		at =
-		@At(
-			value = "INVOKE_ASSIGN",
-			target =
-				"Lnet/minecraft/block/entity/DispenserBlockEntity;setStack(ILnet/minecraft/item/ItemStack;)V"),
+		@At(value = "TAIL"),
 		cancellable = true)
 	private void tryDispense(ServerWorld world, BlockPos pos, CallbackInfo ci) {
 		if (!RugSettings.renewableCalcite) return;
