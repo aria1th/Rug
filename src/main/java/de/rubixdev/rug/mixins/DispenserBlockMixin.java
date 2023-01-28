@@ -31,6 +31,7 @@ public class DispenserBlockMixin {
                             value = "INVOKE_ASSIGN",
                             target =
                                     "Lnet/minecraft/block/entity/DispenserBlockEntity;setStack(ILnet/minecraft/item/ItemStack;)V"),
+            require = 0,
             cancellable = true)
     private void tryDispense(ServerWorld world, BlockPos pos, CallbackInfo ci) {
         if (!RugSettings.renewableCalcite) return;
