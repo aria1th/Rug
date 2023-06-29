@@ -9,7 +9,7 @@ on:
     - "src/**"
     - "build.gradle"
     - "gradle.properties"
-    - "build-on-pr.yaml"
+    - "devbuild.yaml"
 
 jobs:
   Build:
