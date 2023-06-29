@@ -458,7 +458,7 @@ public class RugServer implements CarpetExtension, ModInitializer {
 
     private static IntProperty getAgeProperty(Block block) {
         if (block instanceof CropBlock) {
-            return ((CropBlock) block).getAgeProperty();
+            return CropBlock.AGE;
         } else if (block instanceof NetherWartBlock) {
             return NetherWartBlock.AGE;
         } else if (block instanceof CocoaBlock) {

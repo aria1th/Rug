@@ -27,7 +27,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     }
 
     @Shadow
-    public abstract ServerWorld getWorld();
+    public abstract ServerWorld getServerWorld();
 
     @Inject(
             method = "onDeath",
@@ -58,7 +58,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
         if (RugSettings.campSleeping
                 && bl
                 && this.isSneaking()
-                && this.getWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
+                && this.getServerWorld().getBlockState(pos).isIn(BlockTags.BEDS)) {
             ci.cancel();
         }
     }

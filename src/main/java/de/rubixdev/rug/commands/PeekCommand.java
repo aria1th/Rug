@@ -70,7 +70,7 @@ public class PeekCommand {
                                     new Dynamic<>(NbtOps.INSTANCE, targetPlayerData.get("Dimension")))
                             .result()
                             .orElseThrow());
-            if (world != null) targetPlayer.setWorld(world);
+            if (world != null) targetPlayer.setServerWorld(world);
         }
 
         if (isEnderChest) {

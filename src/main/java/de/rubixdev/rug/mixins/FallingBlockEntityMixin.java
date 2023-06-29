@@ -39,6 +39,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
             locals = LocalCapture.CAPTURE_FAILHARD,
             cancellable = true)
     private void onTick(CallbackInfo ci, Block block, BlockPos pos) {
+        World world = this.getEntityWorld();
         BlockPos posBelow = this.getBlockPos().down();
         BlockState blockStateBelow = world.getBlockState(posBelow);
         Block blockBelow = blockStateBelow.getBlock();
@@ -47,7 +48,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
             if (blockBelow == Blocks.FROSTED_ICE && RugSettings.anvilledIce > 0) {
                 if (++frostedIceCount < RugSettings.anvilledIce) {
                     world.breakBlock(posBelow, false);
-                    onGround = false;
+                    this.setOnGround(false);
                     ci.cancel();
                 } else {
                     world.breakBlock(posBelow, false);
@@ -56,7 +57,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
             } else if (blockBelow == Blocks.ICE && RugSettings.anvilledPackedIce > 0) {
                 if (++iceCount < RugSettings.anvilledPackedIce) {
                     world.breakBlock(posBelow, false);
-                    onGround = false;
+                    this.setOnGround(false);
                     ci.cancel();
                 } else {
                     world.breakBlock(posBelow, false);
@@ -65,7 +66,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
             } else if (blockBelow == Blocks.PACKED_ICE && RugSettings.anvilledBlueIce > 0) {
                 if (++packedIceCount < RugSettings.anvilledBlueIce) {
                     world.breakBlock(posBelow, false);
-                    onGround = false;
+                    this.setOnGround(false);
                     ci.cancel();
                 } else {
                     world.breakBlock(posBelow, false);

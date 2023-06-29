@@ -38,10 +38,9 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "drop", at = @At("HEAD"), cancellable = true)
     private void onDrop(DamageSource source, CallbackInfo ci) {
         Entity dyingEntity = this;
-
         if (dyingEntity.getType().equals(EntityType.SHULKER)
                 && RugSettings.strictShulkerShells > 0
-                && dyingEntity.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+                && dyingEntity.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
             ItemStack stack = new ItemStack(Items.SHULKER_SHELL);
             stack.setCount(RugSettings.strictShulkerShells);
             dyingEntity.dropStack(stack);
