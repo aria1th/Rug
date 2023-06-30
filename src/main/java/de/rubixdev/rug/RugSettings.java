@@ -163,10 +163,12 @@ public class RugSettings {
                             && newValue
                                     <= (CarpetServer.minecraft_server == null
                                             ? 100
-                                            : CarpetServer.minecraft_server
-                                                            .getPlayerManager()
-                                                            .getSimulationDistance()
-                                                    * 16)
+                                            : Math.max(
+                                                    4.5,
+                                                    CarpetServer.minecraft_server
+                                                                    .getPlayerManager()
+                                                                    .getSimulationDistance()
+                                                            * 16))
                     ? newValue
                     : null;
         }

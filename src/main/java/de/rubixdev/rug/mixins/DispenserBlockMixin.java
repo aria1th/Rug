@@ -28,10 +28,12 @@ public class DispenserBlockMixin {
             method = "dispense",
             at =
                     @At(
-                            value = "INVOKE_ASSIGN",
+                            value = "INVOKE",
                             target =
                                     "Lnet/minecraft/block/entity/DispenserBlockEntity;setStack(ILnet/minecraft/item/ItemStack;)V"),
-            cancellable = true)
+            cancellable = true,
+            remap = false,
+            require = 0)
     private void tryDispense(ServerWorld world, BlockPos pos, CallbackInfo ci) {
         if (!RugSettings.renewableCalcite) return;
         BlockPos facingPos = pos.offset(world.getBlockState(pos).get(FACING));
